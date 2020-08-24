@@ -4,9 +4,11 @@ import Home from '../views/Home'
 import Classify from '../views/Classify'
 import Cart from '../views/Cart'
 import Mine from '../views/Mine'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import Search from '../views/Search'
+import GlobalBuy from '../views/GlobalBuy'
 // import InputSearch from '../components/InputSearch'
+import Detail from '../views/subpage/Detail'
 
 Vue.use(VueRouter)
 
@@ -35,10 +37,18 @@ const routes = [
     path:'/search',
     component:Search,
   },
+  // {
+  //   path:'/footer',
+  //   component:Footer,
+  // },
   {
-    path:'/footer',
-    component:Footer,
+    path:'/globalBuy',
+    component:GlobalBuy
   },
+  {
+    path:'/detail',
+    component:Detail
+  }
   
   
 ]

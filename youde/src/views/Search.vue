@@ -119,7 +119,7 @@ export default {
       width: 0.27rem;
       height: 0.04rem;
       background: #4faff8;
-      transition:0.4s ease-out;
+      transition:0.2s ease-out;
     }
   }
   .navcon {
