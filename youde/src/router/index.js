@@ -9,6 +9,7 @@ import Search from '../views/Search'
 import GlobalBuy from '../views/GlobalBuy'
 // import InputSearch from '../components/InputSearch'
 import Detail from '../views/subpage/Detail'
+import DetailFooter from '../components/DetailFooter'
 
 Vue.use(VueRouter)
 
@@ -46,8 +47,13 @@ const routes = [
     component:GlobalBuy
   },
   {
-    path:'/detail',
+    path:'/detail/:id',
+    name:'detail',
     component:Detail
+  },
+  {
+    path:'/detailfooter',
+    component:DetailFooter
   }
   
   

@@ -108,7 +108,7 @@
       </h2>
       <div class="recommendBuyCon">
         <figure v-for="(item,idx) in recommendBuyList" :key="idx">
-          <router-link to="/item.id">
+          <router-link :to="{name:'detail',params:{id:item.id}}">
             <img :src="item.thumbnail" alt />
             <figcaption class="fs14">{{item.title}}</figcaption>
             <p class="fs12">￥{{item.maxPrice/100}}</p>
@@ -156,6 +156,7 @@ export default {
       url: "/youde/f/pc/s_10020/goods/recommend/list",
     }).then((res) => {
       this.recommendBuyList = res.data.data;
+      console.log(this.recommendBuyList)
     });
 
     //今日团购

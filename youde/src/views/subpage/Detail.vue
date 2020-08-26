@@ -28,39 +28,124 @@
         <i class="iconfont icon-fenxiang"></i>
       </div>
       <div class="box price">
-          <p class="fs14">￥4.90</p>
-          <p>原价￥<span>10.90</span></p>
+        <p class="fs14">￥4.90</p>
+        <p>
+          原价￥
+          <span>10.90</span>
+        </p>
       </div>
       <div class="box msg">
-          <h2 class="fs14">五包包邮哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</h2>
-          <div class="cuxiao">
-              <span>促销</span>
-              <p>
-                  <span>包满邮</span>
-                  <span>满19.90包邮</span>
-              </p>
-            
+        <h2 class="fs14">
+          <span>介绍</span>五包包邮哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        </h2>
+        <div class="cuxiao">
+          <span class="cu fs14">促销</span>
+          <span class="reduce fs13">包满邮</span>
+          <span class="fs12 darkgray">满19.90包邮</span>
+        </div>
+        <div class="cuxiao">
+          <span class="reduce fs13">满减</span>
+          <span class="fs12 darkgray">每满10减1</span>
+          <i class="iconfont icon-gengduo"></i>
+        </div>
+      </div>
+      <div class="box" @click="chooseBuy">
+        <h2 class="title">
+          <span>选择规格</span>哈哈哈哈哈哈哈哈
+          <i class="iconfont icon-jinrujiantou"></i>
+        </h2>
+      </div>
+      <div class="box user">
+        <h3 class="fs13">商品评论</h3>
+        <div class="header">
+          <div class="tou">
+            <img src alt />
+            <span>173****9652</span>
           </div>
-          <div class="cuxiao">
-              <p>
-                  <span>满减</span>
-                  <span>每满10减1</span>
-              </p>
-              <i class="iconfont icon-gengduo"></i>
-            
-          </div>
+          <div class="star">1 1 1 1 1</div>
+        </div>
+        <p>我是评价区域</p>
       </div>
     </section>
+
+    <!-- 底部 -->
+    <div class="footer">
+      <div class="lt">
+        <router-link to="/">
+          <i class="iconfont icon-xinxi1"></i>
+          <span>客服</span>
+        </router-link>
+        <router-link to="/">
+          <i class="iconfont icon-shoucang"></i>
+          <span>收藏</span>
+        </router-link>
+        <router-link to="/">
+          <i class="iconfont icon-gouwuche1"></i>
+          <span>购物车</span>
+        </router-link>
+      </div>
+      <div class="join all">加入购物车</div>
+      <div class="buy all">立即购买</div>
+    </div>
+
+    <!-- 弹窗 -->
+    <mt-popup v-model="popupVisible" popup-transition="popup-up" position="bottom">
+      <div class="con">
+        <div class="header">
+          <img src="@/assets/images/banner1.jpg" alt />
+          <div class="msg">
+            <p>￥4.90</p>
+            <p class="fs14 midgray">库存 1221</p>
+            <p class="fs14 midgray">已选 1包 (每包80抽)</p>
+          </div>
+        </div>
+        <div class="guige">
+          <h3 class="fs12 midgray">规格</h3>
+          <div class="card fs14">
+            <span class="active">一包</span>
+            <span>hhh</span>
+          </div>
+        </div>
+        <div class="count">
+          <span class="fs12 midgray">数量</span>
+          <div class="num">
+            <i class="iconfont icon-jianshao"></i>
+            <span>1</span>
+            <i class="iconfont icon-zengjia active"></i>
+          </div>
+        </div>
+        
+      </div>
+      <div class="joincart fs13">
+          加入购物车
+        </div>
+    </mt-popup>
   </div>
 </template>
 
 <script>
 export default {
   name: "",
+  data() {
+    return {
+      popupVisible: false,
+    
+    };
+  },
+  methods: {
+    chooseBuy() {
+      this.popupVisible = true;
+    },
+    mounted(){
+      console.log(this.$route.params)
+    }
+  },
 };
 </script>
 
 <style lang="less" scoped>
+@import "~@/assets/less/public.less";
+
 .detail {
   nav {
     position: fixed;
@@ -110,7 +195,7 @@ export default {
     }
   }
   section {
-    padding: 0 0.12rem;
+    padding: 0 0.12rem 0.49rem;
     background: #f0f1f2;
     .box {
       background: #fff;
@@ -133,34 +218,201 @@ export default {
         -webkit-box-orient: vertical;
       }
     }
-    .price{
-        p:nth-child(1){
-            color:#d83c2a;
-            margin-bottom:0.12rem;
+    .price {
+      p:nth-child(1) {
+        color: #d83c2a;
+        margin-bottom: 0.12rem;
+      }
+      p:nth-child(2) {
+        font-size: 12px;
+        color: #999;
+        span {
+          font-size: 10px;
+          text-decoration: line-through;
         }
-        p:nth-child(2){
-            font-size:12px;
-            color:#999;
-            span{
-                font-size:10px;
-                text-decoration: line-through;
-            }
+      }
+    }
+    h2 {
+      color: #666;
+      font-weight: bold;
+      position: relative;
+      .iconfont {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #737b82;
+      }
+      span {
+        font-size: 14px;
+        color: #999;
+        margin-right: 0.1rem;
+        font-weight: normal;
+      }
+    }
 
+    .msg {
+      .cuxiao {
+        display: flex;
+        align-items: center;
+        position: relative;
+        .cu {
+          color: #999;
         }
+        .reduce {
+          width: 0.6rem;
+          height: 0.2rem;
+          text-align: center;
+          line-height: 0.2rem;
+          border: 1px solid #d83c2a;
+          border-radius: 3px;
+          color: #d83c2a;
+          margin: 0 0.1rem 0 0.12rem;
+        }
+        .iconfont {
+          position: absolute;
+          right: 0;
+          top: 0.02rem;
+        }
+        &:nth-of-type(1) {
+          margin: 0.15rem 0 0.08rem 0;
+        }
+        &:nth-of-type(2) {
+          padding-left: 0.28rem;
+        }
+      }
     }
-    .msg{
-       h2{
-           color:#666;
-           font-weight:bold;
-       } 
-       h2:before{
-           content:'介绍';
-           font-size:14px;
-           color:#999;
-           margin-right:0.1rem;
-           font-weight: normal;
-       }
+    .user {
+      h3 {
+        color: #848484;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
+  }
+  .footer {
+    width: 100%;
+    height: 0.49rem;
+    background: #f5f5f5;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    // align-items:center;
+    .lt {
+      width: 1.5rem;
+      display: flex;
+
+      a {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #666;
+        .iconfont {
+          font-size: 20px;
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+    .all {
+      flex: 1;
+      color: #fff;
+      text-align: center;
+      line-height: 0.49rem;
+      font-size: 14px;
+    }
+    .join {
+      flex: 1;
+      background: #f3b13e;
+    }
+    .buy {
+      flex: 1;
+      background: #dc3927;
+    }
+  }
+
+  .mint-popup-bottom {
+    width: 100%;
+    .con {
+      padding: 0.26rem 0.22rem 0 0.1rem;
+      height: 3.6rem;
+      .header {
+        display: flex;
+        img {
+          width: 0.9rem;
+          height: 0.9rem;
+          border-radius: 2px;
+          margin-right: 0.1rem;
+        }
+        .msg {
+          p:nth-child(1) {
+            color: #cd372e;
+            margin: 0.04rem 0 0.15rem 0;
+          }
+          p:nth-child(2) {
+            margin-bottom: 0.1rem;
+          }
+        }
+      }
+      .guige {
+        h3 {
+          margin: 0.14rem 0 0.08rem 0;
+        }
+        .card {
+          display: flex;
+          span {
+            width: 1.35rem;
+            height: 0.29rem;
+            line-height: 0.29rem;
+            text-align: center;
+            border: 1px solid #464646;
+            border-radius: 2px;
+            color: #464646;
+            margin-right: 0.1rem;
+            &.active {
+              color: #e25e57;
+              border-color: #e25e57;
+            }
+          }
+        }
+      }
+      .count {
+        margin-top: 0.23rem;
+        display: flex;
+        justify-content: space-between;
+        .num {
+        span {
+          margin: 0 0.28rem;
+          color: #000;
+        }
+        .iconfont {
+          font-size: 12px;
+          color: #e9e9e9;
+
+          &.active {
+            color: #4faff8;
+          }
+        }
+      }
+      }
+      
+      
+    }
+    .joincart{
+        height:0.49rem;
+        line-height:0.49rem;
+        width:100%;
+        background:#e25e57;
+        color:#fff;
+        text-align:center;
+
+      }
   }
 }
 </style>
