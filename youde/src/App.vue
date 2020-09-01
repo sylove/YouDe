@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <!-- keep-alive会缓存命中的组件 不用每次重新渲染 提高用户体验 -->
+    <!-- <keep-alive> -->
+      <router-view></router-view>
+    <!-- </keep-alive> -->
+    
   </div>
 </template>
 <script>

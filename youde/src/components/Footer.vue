@@ -39,20 +39,23 @@
 
 <script>
 export default {
+  props: {
+    isselected: String,
+  },
   name: "",
   data() {
     return {
-      selected: "homePage",
+      selected:this.isselected,
     };
   },
   watch: {
     selected(val, oldVal) {
       switch (val) {
         case "homePage":
-          this.$router.push("/home");
+          this.$router.push("/");
           break;
         case "classPage":
-          this.$router.push("/class");
+          this.$router.push("/classify");
           break;
         case "cartPage":
           this.$router.push("/cart");
