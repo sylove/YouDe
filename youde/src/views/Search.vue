@@ -6,7 +6,7 @@
         <i class="iconfont icon-fangdajing"></i>
         <span>请输入您想搜索的产品</span>
       </div>
-      <router-link to="/" class="fs14">取消</router-link>
+      <p class="fs14" @click="goBack">取消</p>
     </nav>
 
     <!--navbar-->
@@ -55,6 +55,9 @@ export default {
       }
       
     },
+    goBack(){
+      this.$router.go(-1)
+    }
   },
 };
 </script>
@@ -91,7 +94,7 @@ export default {
         font-size: 20px;
       }
     }
-    a {
+    p {
       color: #464646;
     }
   }

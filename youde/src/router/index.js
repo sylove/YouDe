@@ -4,14 +4,12 @@ import Home from '../views/Home'
 import Classify from '../views/Classify'
 import Cart from '../views/Cart'
 import Mine from '../views/Mine'
-// import Footer from '../components/Footer'
 import Search from '../views/Search'
-import GlobalBuy from '../views/GlobalBuy'
-// import InputSearch from '../components/InputSearch'
+import GlobalBuy from '../views/subpage/GlobalBuy'
 import Detail from '../views/detail/Detail'
-import DetailFooter from '../components/DetailFooter'
 import List from '../views/subpage/List'
-import DetailOne from '../views/detail/DetailOne'
+import ClassifyList from '../views/classifylist/ClassifyList'
+import ClassifyCover from '../views/classifylist/ClassCover'
 
 Vue.use(VueRouter)
 
@@ -32,18 +30,10 @@ const routes = [
     path:'/mine',
     component:Mine,
   },
-  // {
-  //   path:'/input',
-  //   component:InputSearch,
-  // },
   {
     path:'/search',
     component:Search,
   },
-  // {
-  //   path:'/footer',
-  //   component:Footer,
-  // },
   {
     path:'/globalBuy',
     component:GlobalBuy
@@ -54,18 +44,20 @@ const routes = [
     component:Detail
   },
   {
-    path:'/detailfooter',
-    component:DetailFooter
-  },
-  {
     path:'/list/:siteId/:secondCategoryId',
     name:'list',
     component:List
   },
   {
-    path:'/detailOne',
-    component:DetailOne
+    path:'/classifylist:siteId/:thridCategoryId/:name',
+    name:'classifylist',
+    component:ClassifyList
+  },
+  {
+    path:'/aa',
+    component:ClassifyCover
   }
+  
   
   
   
